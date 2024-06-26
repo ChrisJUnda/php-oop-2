@@ -39,18 +39,18 @@ $products = [
     <Main>
         <!-- Sono Main -->
         <ul>
-            <li <?php foreach ($products as $product) : ?>>
+            <?php foreach ($products as $product) : ?>
+                <li>
+
+                    <h2><?= $product->getTitle(); ?></h2>
+
+                    <p>Categoria: <?= $product->getCategory()->getName(); ?></p>
 
 
-                <h2><?= $product->getTitle(); ?></h2>
+                    <p>Prezzo: <?= $product->getPrice(); ?>€</p>
 
-                <p>Categoria: <?= $product->getCategory()->getName(); ?></p>
-
-
-                <p>Prezzo: <?= $product->getPrice(); ?>€</p>
-
-            <?php endforeach; ?>
-            </li>
+                <?php endforeach; ?>
+                </li>
         </ul>
 
     </Main>
