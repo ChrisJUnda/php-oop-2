@@ -3,7 +3,11 @@
 require_once __DIR__ . '/models/product.php';
 require_once __DIR__ . '/models/categories.php';
 require_once __DIR__ . '/models/Food.php';
+require_once __DIR__ . '/models/toy.php';
+require_once __DIR__ . '/models/cucce.php';
 
+
+//Categories
 $dogCategories = new Categories("Cani");
 $catCategories = new Categories("Gatti");
 
@@ -11,6 +15,8 @@ $catCategories = new Categories("Gatti");
 
 $products = [
     new Food("Dentastix", 5, $dogCategories),
+    new Toy("Gomitolo per gatti", 5, $catCategories),
+    new Cucce("Cuccia per cani", 45, $dogCategories),
 ];
 
 // var_dump($dogCategories);
