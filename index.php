@@ -2,12 +2,19 @@
 //INCLUDIAMO LE CLASSI
 require_once __DIR__ . '/models/product.php';
 require_once __DIR__ . '/models/categories.php';
+require_once __DIR__ . '/models/Food.php';
 
 $dogCategories = new Categories("Cani");
 $catCategories = new Categories("Gatti");
 
-var_dump($dogCategories);
-var_dump($catCategories);
+//products
+
+$products = [
+    new Food("Dentastix", 5, $dogCategories),
+];
+
+// var_dump($dogCategories);
+// var_dump($catCategories);
 ?>
 
 <!DOCTYPE html>
@@ -23,21 +30,35 @@ var_dump($catCategories);
 
     <!-- Header -->
     <Header>
-        Sono Header
+        <!-- Sono Header -->
 
     </Header>
     <!-- /Header -->
 
     <!-- MAIN -->
     <Main>
-        Sono Main
+        <!-- Sono Main -->
+        <ul>
+            <li <?php foreach ($products as $product) : ?>>
+
+
+                <h2><?= $product->getTitle(); ?></h2>
+
+                <p>Categoria: <?= $product->getCategory()->getName(); ?></p>
+
+
+                <p>Prezzo: <?= $product->getPrice(); ?>€</p>
+
+            <?php endforeach; ?>
+            </li>
+        </ul>
 
     </Main>
     <!-- /MAIN -->
 
     <!-- FOOTER -->
     <Footer>
-        Sono Footer
+        <!-- Sono Footer -->
 
     </Footer>
     <!-- /FOOTER -->
